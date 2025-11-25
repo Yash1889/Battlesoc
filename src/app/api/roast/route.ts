@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import Groq from "groq-sdk";
 
-const groq = new Groq({
-    apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY
-});
-
 export async function POST(req: NextRequest) {
     try {
+        const groq = new Groq({
+            apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY
+        });
+
         const { p1, p2, profiles, mode, secret, name1, name2 } = await req.json();
 
         // Validation based on mode
